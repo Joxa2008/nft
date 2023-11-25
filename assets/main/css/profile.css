@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+.rowing {
+    display: grid;
+    grid-template-columns: auto auto auto auto 19%;
+    gap: 10px;
+}
+
+.main {
+    width: 100%;
+    height: 60vh;
+}
+
+.edit-back-txt {
+    padding-top: 15%;
+    padding-left: 47%;
+    color: white;
+    visibility: hidden;
+}
+
+.main:hover {
+    cursor: pointer;
+    .edit-back-txt {
+        visibility: visible;
+    }
+}
+
+.label_choose_back:hover {
+    cursor: pointer;
+}
+
+.label_choose_back {
+    width: 100%;
+    height: 60vh;
+    opacity: 0.6;
+}
+
+.avatar {
+    height: 170px;
+    width: 170px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.avatar:hover {
+
+    .text-edit {
+        visibility: visible;
+        transition: 0.3s;
+    }
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.btm {
+    height: 120px;
+    background-color: rgb(18, 18, 18);
+}
+
+.user-card {
+    position: absolute;
+    margin-left: 50px;
+    margin-top: -150px;
+}
+
+.text-edit {
+    visibility: hidden;
+    padding-top: 44%;
+    padding-left: 38%;
+    font-size: 25px;
+    color: white;
+}
+
+.nick_name {
+    padding-top: 20px;
+    color: white;
+    text-align: center;
+}
+
+.options {
+    height: 80px;
+    background-color: rgb(18, 18, 18);
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    border-top: 1px solid rgb(37, 37, 37);
+    border-bottom: 1px solid rgb(37, 37, 37);
+}
+
+.opt {
+    margin-right: 10px;
+    font-size: 20px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-family: 'Inter';
+    background-color: rgb(18, 18, 18);
+    color: white;
+}
+
+.active {
+    background-color: rgb(27, 27, 27);
+}
+
+.my-nfts {
+    padding: 0 50px;
+}
+
+.top-it {
+    height: 270px;
+    border-radius: 10px 10px 0 0;
+}
+
+#nft-black {
+    background-color: rgb(32, 32, 32);
+    color: white;
+    border-radius: 10px;
+}
+
+.balance {
+    margin-left: 50px;
+    color: white;
+}
+
+.number {
+    margin-left: 10px;
+}
+
+.foot {
+    height: 80px;
+}
+
+.card-body {
+    height: 130px;
+}
+
+.buy-btn {
+    display: flex;
+    background-color: rgb(32, 129, 226);
+    margin-top: -38px;
+    padding: 7px 15px;
+    border-radius: 0 0 10px 10px;
+    justify-content: space-between;
+    /* display: none; */
+}
+
+.buyy {
+    text-align: center;
+    width: 90%;
+    border-right: solid 1px white;
+    /* background: red; */
+    font-weight: 500;
+}
+
+.icon-buy {
+    width: 15%;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.buy-btn {
+    display: none;
+}
+
+#nft-black:hover {
+    .buy-btn {
+        display: flex;
+    }
+
+    .top-it {
+        z-index: 1;
+        border-radius: 10px;
+        transform: scale(0.98);
+        border-radius: 10px 10px 0 0;
+        transition: 0.2s;
+    }
+}
+
+@media (max-width: 1466px) {
+    .rowing {
+        grid-template-columns: auto auto auto auto;
+    }
+}
+
+@media (max-width: 1010px) {
+    .rowing {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media (max-width: 830px) {
+    .rowing {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .options {
+        padding-left: 10px;
+    }
+
+    .user-card {
+        margin-left: 10px;
+    }
+
+    .btm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .my-nfts {
+        padding: 0 10px;
+    }
+
+    .balance {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 368px) {
+        .rowing {
+        grid-template-columns: auto;
+    }
+}

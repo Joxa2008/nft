@@ -1,0 +1,124 @@
+{% extends 'layouts/black-back.html' %}
+{% load static %}
+
+{% block extra_css %}
+
+    <link rel="stylesheet" href="{% static 'main/css/profile.css' %}">
+
+{% endblock extra_css %}
+
+{% block content %}
+    <form method="POST" action="{% url 'profile' %}" id="fileUploadForm" enctype="multipart/form-data"> {% csrf_token %}
+        <input style="display: none" type="file" name="back-users" id="fileToUpload">
+        <input style="display: none" type="submit" value="Upload File">
+    </form>
+    <label class="label_choose_back" for="fileToUpload">
+        <div class="main" style="background: url({{ user.back_img.url }}) no-repeat center/cover;">
+            <h3 class="edit-back-txt">Edit</h3>
+        </div>
+    </label>
+    <div class="btm">
+        <div class="user-card">
+            <form action="{% url 'profile' %}" method="POST" id="avatarUploadForm"
+                  enctype="multipart/form-data"> {% csrf_token %}
+                <input style="display: none" name="avatar" type="file" id="avatarToUpload">
+                <input style="display: none" type="submit" value="Upload File">
+            </form>
+            <label for="avatarToUpload">
+                <div class="avatar" style="background: url({{ user.avatar.url }}) no-repeat center/cover;">
+                    <p class="text-edit">Edit</p>
+                </div>
+            </label>
+            <div class="text">
+                <h1 class="nick_name">{{ user.username }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="balance">
+        <h2><i class="fa-solid fa-wallet"></i><span class="number">{{ user.current_balance }} ETH</span></h2>
+    </div>
+    <div class="options">
+        <button class="opt active">
+            Collected
+        </button>
+        <button class="opt">
+            Favorited
+        </button>
+    </div>
+    <hr>
+    <div class="my-nfts">
+        <div class="rowing">
+                <div class="col">
+                   <a style="text-decoration: none;" href="{% url 'nft' %}">
+                        <div class="card" id="nft-black">
+                            <div class="top-it" style="background: url({% static 'main/img/add_imgs.webp' %}) no-repeat center/cover;">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Add NFT</h5>
+                                <p class="card-text">Click to Add NFT</p>
+                            </div>
+                            <div class="buy-btn" style="background-color: rgb(74,202,193);">
+                                <div class="buyy">Add NFT</div>
+                                <div class="icon-buy"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                        </div>
+                   </a>
+                </div>
+
+            {% for i in nft %}
+                <a style="text-decoration: none;" href="{% url 'ditail' i.id %}">
+                    <div class="col">
+                        <div class="card" id="nft-black">
+                            <div class="top-it" style="background: url({{ i.nft_img.url }}) no-repeat center/cover;">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ i.collection.collections_name }}  #{{ i.nft_name }}</h5>
+                                <p class="card-text">{{ i.price }} ETH</p>
+                            </div>
+                            <div class="buy-btn" style="background-color: rgb(39,54,70);">
+                                <div class="buyy">Ditail</div>
+                                <div class="icon-buy"><i class="fa-solid fa-circle-info"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="foot">
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fileUploadForm = document.getElementById("fileUploadForm");
+            const fileInput = document.getElementById("fileToUpload");
+
+            fileInput.addEventListener("change", function () {
+                // Check if a file has been selected
+                if (fileInput.files.length > 0) {
+                    // Submit the form when a file is selected
+                    fileUploadForm.submit();
+
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fileUploadForm = document.getElementById("avatarUploadForm");
+            const fileInput = document.getElementById("avatarToUpload");
+
+            fileInput.addEventListener("change", function () {
+                // Check if a file has been selected
+                if (fileInput.files.length > 0) {
+                    // Submit the form when a file is selected
+                    fileUploadForm.submit();
+
+                }
+            });
+        });
+    </script>
+{% endblock content %}

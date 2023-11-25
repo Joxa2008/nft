@@ -1,0 +1,94 @@
+footer {
+    background-color: black;
+    width: 100%;
+    padding: 70px 30px 20px ;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: white;
+    margin: 10px;
+    border-radius: 100%;
+}
+
+.social-icons a i {
+    font-size: 2em;
+    color: rgb(255, 255, 255);
+    opacity: 0.9;
+}
+
+.footer-nav {
+    margin: 30px 0px;
+}
+
+.footer-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.footer-nav ul li a{
+    color: white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    opacity: 0.7; 
+    transition: 0.5s;
+}
+
+.footer-nav ul li:hover {
+    opacity: 1;
+
+}
+
+.footer-bottom {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #fff;
+}
+
+.disigner {
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px; 
+}
+
+/* Hover */
+
+.social-icons a .fa-youtube:hover {
+    color: rgb(186, 19, 19);
+    transition: 0.5s;
+}
+
+.social-icons a .fa-facebook:hover {
+    color: rgb(19, 66, 186);
+    transition: 0.5s;
+}
+
+@media (max-width: 700px) {
+    .footer-nav ul {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-nav ul li{
+        width: 100%;
+        text-align: center;
+        margin: 10px 25px 10px 0px;
+    }
+
+
+}
+

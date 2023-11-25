@@ -1,0 +1,84 @@
+{% extends 'layouts/black-back.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/profile.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+    <div class="my-nfts" style="margin-top: 87px;">
+        <div class="options" id="filter" style="position: fixed; z-index: 3; width: 100%; padding-left: 0px;">
+            {% if nft %}
+                <a href="{% url 'explore' %}?nfts=NFT">
+                    <button name="nft" class="opt active">
+                        NFT
+                    </button>
+                </a>
+                <a href="{% url 'explore' %}?collection=Collections">
+                    <button type="submit" class="opt">
+                        Collections
+                    </button>
+                </a>
+            {% else %}
+                <a href="{% url 'explore' %}?nfts=NFT">
+                    <button name="nft" class="opt">
+                        NFT
+                    </button>
+                </a>
+                <a href="{% url 'explore' %}?collection=Collections">
+                    <button type="submit" class="opt active">
+                        Collections
+                    </button>
+                </a>
+            {% endif %}
+        </div>
+        <hr>
+        <div class="row row-cols-2 row-cols-md-5 g-4" style="margin-top: 70px;">
+            {% if nft %}
+                {% for i in nft %}
+                        <div class="col">
+                            <div class="card" id="nft-black">
+                                <a style="text-decoration: none; color: white;" href="{% url 'ditail' i.id %}">
+                                    <div class="top-it" style="background: url({{ i.nft_img.url }}) no-repeat center/cover;">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ i.collection.collections_name }} #{{ i.nft_name }}</h5>
+                                        <p class="card-text">{{ i.price }} ETH</p>
+                                    </div>
+                                </a>
+                                <a style="text-decoration: none; color: white;" href="{% url 'buy_nft' i.id %}">
+                                    <div class="buy-btn">
+                                        <div class="buyy">Buy Now</div>
+                                        <div class="icon-buy"><i class="fa-solid fa-cart-shopping"></i></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                {% endfor %}
+                </div>
+            {% else %}
+                {% for i in nft_coll %}
+                    <a style="text-decoration: none;" href="{% url 'collection' i.id %}">
+                        <div class="col">
+                            <div class="card" id="nft-black">
+                                <div class="top-it" style="background: url({{ i.collections_img.url }}) no-repeat center/cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ i.collections_name }} Collection</h5>
+                                    <p class="card-text">Owned by {{ i.owner.username }}</p>
+                                    <div style="background: url({{i.owner.avatar.url}});"></div>
+                                </div>
+                                <div class="buy-btn" style="background-color: rgb(220,181,235);">
+                                    <div class="buyy">Explore NFT</div>
+                                    <div class="icon-buy"><i class="fa-brands fa-wpexplorer"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            {% endif %}
+    </div>
+    <div class="foot">
+
+    </div>
+{% endblock content %}

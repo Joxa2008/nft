@@ -1,0 +1,91 @@
+{% extends 'layouts/black-back.html' %}
+{% load static %}
+
+{% block extra_css %}
+
+    <link rel="stylesheet" href="{% static 'main/css/profile.css' %}">
+
+{% endblock extra_css %}
+
+{% block content %}
+        <div class="main" style="background: url({{ user.back_img.url }}) no-repeat center/cover;">
+        </div>
+    <div class="btm">
+        <div class="user-card">
+            <div class="avatar" style="background: url({{ collection.collections_img.url }}) no-repeat center/cover;"></div>
+            <div class="text">
+                <h1 class="nick_name">{{ collection.collections_name }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="options">
+        <button class="opt active">
+            NFT
+        </button>
+    </div>
+    <hr>
+    <div class="my-nfts">
+        <div class="row row-cols-2 row-cols-md-5 g-4">
+            {% for i in nft %}
+                <a style="text-decoration: none;" href="{% url 'ditail' i.id %}">
+                    <div class="col">
+                        <div class="card" id="nft-black">
+                            <div class="top-it" style="background: url({{ i.nft_img.url }}) no-repeat center/cover;">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ i.collection.collections_name }}  #{{ i.nft_name }}</h5>
+                                <p class="card-text">{{ i.price }} ETH</p>
+                            </div>
+                            {% if i.owner != user %}
+                                <div class="buy-btn">
+                                    <div class="buyy">Buy Now</div>
+                                    <div class="icon-buy"><i class="fa-solid fa-cart-shopping"></i></div>
+                                </div>
+                            {% else %}
+                                <div class="buy-btn" style="background-color: rgb(39,54,70);">
+                                    <div class="buyy">Ditail</div>
+                                    <div class="icon-buy"><i class="fa-solid fa-circle-info"></i></div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="foot">
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fileUploadForm = document.getElementById("fileUploadForm");
+            const fileInput = document.getElementById("fileToUpload");
+
+            fileInput.addEventListener("change", function () {
+                // Check if a file has been selected
+                if (fileInput.files.length > 0) {
+                    // Submit the form when a file is selected
+                    fileUploadForm.submit();
+
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fileUploadForm = document.getElementById("avatarUploadForm");
+            const fileInput = document.getElementById("avatarToUpload");
+
+            fileInput.addEventListener("change", function () {
+                // Check if a file has been selected
+                if (fileInput.files.length > 0) {
+                    // Submit the form when a file is selected
+                    fileUploadForm.submit();
+
+                }
+            });
+        });
+    </script>
+{% endblock content %}

@@ -1,0 +1,232 @@
+{% extends 'layouts/main.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- End Of Navbar -->
+    <!-- First-Welcome Page -->
+
+    <div class="head" style="background: url({% static 'main/img/galaxy-7040416_1280.webp' %}) no-repeat center/cover;">
+        <div class="container-head sleep">
+            <h1 class="top-txt">Own your <img class="noodels"
+                                              src="{% static 'main/img/nft_astronaut_collection_1639484504_382c3ec4_progressive.jpg' %}"
+                                              alt=""></h1>
+            <h1 class="btm-txt"><span class="yellow">NFT</span> <img class="noodels second"
+                                                                     src="{% static 'main/img/unnamed.png' %}" alt="">
+                identity</h1>
+            <div class="sml-txt">
+                <p>Build your brand with an NFT that is uniquely you</p>
+            </div>
+            {% if is_auth %}
+                <a href="{% url 'explore' %}"><button class="button-profile">Explore To Choose</button></a>
+            {% else %}
+                <a href="{% url 'sign_up' %}"><button class="button-profile">Create A Profile</button></a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="container-head wake">
+        <h1 class="top-txt">Own your <img class="noodels"
+                                          src="{% static 'main/img/nft_astronaut_collection_1639484504_382c3ec4_progressive.jpg' %}"
+                                          alt=""></h1>
+        <h1 class="btm-txt"><span class="yellow">NFT</span> <img class="noodels second"
+                                                                 src="{% static 'main/img/unnamed.png' %}" alt="">
+            identity</h1>
+        <div class="sml-txt">
+            <p>Build your brand with an NFT that is uniquely you</p>
+        </div>
+
+        {% if is_auth %}
+            <button class="button-profile">Explore To Choose</button>
+        {% else %}
+            <a href="{% url 'sign_up' %}"><button class="button-profile">Create A Profile</button></a>
+        {% endif %}
+    </div>
+
+    <!-- End of First-Welcome Page -->
+    <!-- Body Part -->
+
+    <div class="container-head anoth">
+        <div class="card mb-3" style="background-color: rgb(17,6,32);">
+            <div class="row g-0">
+                <div class="col-md-7">
+                    <div class="text-p">
+                        <h5 class="sip-top">Gain <span class="yellow"> the latest </span> <br> insights</h5>
+                        <br>
+                        <p class="sip-btm">Stay up to date on latest trend</p>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <img src="{% static 'main//img/blog_img.webp' %}" class="img-fluid rounded-start" alt="...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="anoth-pad space-top anoth">
+        <div class="card mb-3" style="background-color: rgb(17,6,32);">
+            <div class="row g-0">
+                <div class="col-md-6" id="rem-img">
+                    <img src="{% static 'main/img/Screenshot 2023-11-12 at 22.55.04.png' %}"
+                         style="border-radius: 0px 20px 20px 0px;" class="img-fluid" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <div class="text-p pop">
+                        <h5 class="sip-top">Build <span class="yellow">Your <br> Identity</span></h5>
+                        <br>
+                        <p class="sip-btm">Customize your NFT Profile as an identity that you own and you control</p>
+                    </div>
+                </div>
+                <div class="col-md-6" id="rem-open">
+                    <img src="{% static 'main/img/Screenshot 2023-11-12 at 22.55.04.png' %}" class="img-fluid"
+                         alt="...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-head space-top anoth">
+        <div class="card mb-3" style="background-color: rgb(17,6,32);">
+            <div class="row g-0">
+                <div class="col-md-7">
+                    <div class="text-p">
+                        <h5 class="sip-top"><span class="yellow">Free</span> trading</h5>
+                        <br>
+                        <p class="sip-btm">Buy and sell NFTs without any fees through the NFT.com Marketplace</p>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <img src="{% static 'main/img/SocialSection1 (1).png' %}" class="img-fluid rounded-start" alt="...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Of Body Part -->
+    <!-- Beginning of Big Card -->
+
+    <div class="container-head">
+        <div class="card mb-3" style="border-radius: 40px;">
+            <div class="row g-0" id="change">
+                <div class="col-lg-7" id="card-change">
+                    <div class="text-a ar">
+                        <h5 class="big-top bg">Build your <br> NFT Profile</h5>
+                        <p class="big-btm sm">Join almost 10k NFT Profiles!</p>
+                        {% if is_auth %}
+                            <a href="{% url 'explore' %}"><button class="button-profile but">Explore To Choose</button></a>
+                        {% else %}
+                            <a href="{% url 'sign_up' %}"><button class="button-profile but">Create a Profile</button></a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-5" id="abs-change"
+                     style="background: url({% static 'main/img/build-profile-bg.webp' %}) no-repeat center/cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End of Big Card -->
+    <!-- NFTs Part -->
+
+    <div class="container-head colored">
+        <div class="mid-head">
+            <h1>Featured ✨ </h1>
+            <a class="view-all" href="{% url 'explore' %}">View all</a>
+        </div>
+        <div class="nft-scroll">
+            <div class="card-nft rem">
+                <img class="card-img-top" src="{% static 'main/img/Rectangle 11.svg' %}" alt="Card image cap">
+                <div class="cards-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">3D Soft Curves</h5>
+                    <div class="card-info">
+                        <div class="card-owner">
+                            <div class="card-avatar">
+                            </div>
+                            <p class="sm-txt">Esther Howard</p>
+                        </div>
+                        <div class="card-price">
+                            <div class="curr-bid">
+                                <small>Current Bid</small>
+                            </div>
+                            <div>
+                                <p class="price">9.06 ETH</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-nft rem">
+                <img class="card-img-top" src="{% static 'main/img/samarqand.png' %}" alt="Card image cap">
+                <div class="cards-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">3D Soft Curves</h5>
+                    <div class="card-info">
+                        <div class="card-owner">
+                            <div class="card-avatar">
+                            </div>
+                            <p class="sm-txt">Esther Howard</p>
+                        </div>
+                        <div class="card-price">
+                            <div class="curr-bid">
+                                <small>Current Bid</small>
+                            </div>
+                            <div>
+                                <p class="price">9.06 ETH</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-nft">
+                <img class="card-img-top" src="{% static 'main/img/women.png' %}" alt="Card image cap">
+                <div class="cards-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">3D Soft Curves</h5>
+                    <div class="card-info">
+                        <div class="card-owner">
+                            <div class="card-avatar">
+                            </div>
+                            <p class="sm-txt">Esther Howard</p>
+                        </div>
+                        <div class="card-price">
+                            <div class="curr-bid">
+                                <small>Current Bid</small>
+                            </div>
+                            <div>
+                                <p class="price">9.06 ETH</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-nft">
+                <img class="card-img-top" src="{% static 'main/img/star_wars.png' %}" alt="Card image cap">
+                <div class="cards-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">3D Soft Curves</h5>
+                    <div class="card-info">
+                        <div class="card-owner">
+                            <div class="card-avatar">
+                            </div>
+                            <p class="sm-txt">Esther Howard</p>
+                        </div>
+                        <div class="card-price">
+                            <div class="curr-bid">
+                                <small>Current Bid</small>
+                            </div>
+                            <div>
+                                <p class="price">9.06 ETH</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Of NFTs Part -->
+
+{% endblock content %}

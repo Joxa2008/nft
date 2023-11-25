@@ -1,0 +1,55 @@
+{% extends 'layouts/no-nav.html' %}
+{% load static %}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/login.css' %}">
+{% endblock extra_css %}
+{% block content %}
+
+    <div class="login-block"
+         style="background: url({% static 'main/img/galaxy-7040416_1280.webp' %}) no-repeat center/cover; padding: 0 10px">
+        <div class="form-container">
+            <p class="title">Sign Up</p>
+            <form class="form" action="{% url 'sign_up' %}" method="POST">{% csrf_token %}
+                <div class="input-groups">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" required placeholder="">
+                    <div>
+                        <p style="margin-top: 4px; color: red; list-style: none;">{{ message }}</p>
+                    </div>
+                </div>
+                <div class="input-groups">
+                    <label for="username">E-mail</label>
+                    <input type="text" name="email" required placeholder="">
+                    <div>
+                        {% for i in profile.email.errors %}
+                            <p style="margin-top: 4px; color: red; list-style: none;">{{ i }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="input-groups">
+                    <label for="username">Password</label>
+                    <input type="password" required name="password" placeholder="">
+                </div>
+                <div class="input-groups">
+                    <label for="password">Pin Code</label>
+                    <input type="password" minlength="4" maxlength="4" name="card_pin" placeholder="">
+                    <div>
+                        {% for i in profile.card_pin.errors %}
+                            <p style="margin-top: 4px; color: red; list-style: none;">{{ i }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="forgot">
+                        <a rel="noopener noreferrer" href="#">Forgot Password ?</a>
+                    </div>
+                </div>
+                <button type="submit" class="sign">Sign in</button>
+            </form>
+            <p class="signup" style="margin-top: 20px;">Already have an account?
+                <a rel="noopener noreferrer" href="{% url 'log_in' %}" class="">Log in</a>
+            </p>
+        </div>
+    </div>
+
+{% endblock content %}

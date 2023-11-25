@@ -1,0 +1,44 @@
+{% extends 'layouts/no-nav.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/login.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+
+    <div class="login-block"
+         style="background: url({% static 'main/img/galaxy-7040416_1280.webp' %}) no-repeat center/cover;">
+        <div class="form-container">
+            <p class="title">Create NFT</p>
+            <form class="form" method="POST" action="{% url 'nft' %}" enctype="multipart/form-data">{% csrf_token %}
+                <div class="input-groups">
+                    <labe for="password">NFT</labe>
+                    <select name="collection" id="select-it"
+                            style="width: 100%; border-radius: 0.375rem; height: 2.9rem; padding: 0 0.75rem; background-color: rgb(17,24,39); border-color: rgb(55,65,81); color: white;">
+                        {% for i in collections %}
+                            <option value="{{ i.collections_name }}">{{ i.collections_name }}</option>
+                        {% endfor %}
+                    </select>
+                    {% if message %}
+                        <div>
+                            <p style="margin-top: 4px; color: red; list-style: none;">{{ message }}</p>
+                        </div>
+                    {% endif %}
+                    <span><a href="{% url 'create_collection' %}">Create Collection</a></span>
+                </div>
+                <div class="input-groups">
+                    <label for="username">IMG</label>
+                    <input type="file" name="nft_img" accept="image/*">
+                </div>
+                <div class="input-groups">
+                    <label for="password">Price</label>
+                    <input type="number" value="0.01" min="0" step="0.01" name="price" id="password" placeholder="">
+                </div>
+                <button style="margin-top: 20px;" type="submit" class="sign">Create</button>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock content %}

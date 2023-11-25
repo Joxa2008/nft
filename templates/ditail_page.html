@@ -1,0 +1,66 @@
+{% extends 'layouts/black-back.html' %}
+{% load static %}
+
+{% block extra_css %}
+
+    <link rel="stylesheet" href="{% static 'main/css/dital.css' %}">
+
+{% endblock extra_css %}
+
+{% block content %}
+{#rgb(18, 18, 18);#}
+        <div class="flex-it" style="margin-top: 50px">
+            <div class="main-nft-block">
+                <div class="hat">
+                    <i class="fa-brands fa-ethereum"></i>
+                </div>
+                <div style="background: url({{ nft.nft_img.url }}) no-repeat center/cover; height: 85%; border-radius:0px 0px 15px 15px; ">
+                </div>
+            </div>
+            <div class="second-nft-block">
+                <div>
+                    <p class="collection">{{ nft.collection.collections_name }} Original Collection <img src="{% static 'main/img/verified.png'%}" height="20px" alt=""></p>
+                    <h3 class="nft_name">{{ nft.collection.collections_name }} #{{ nft.nft_name }}</h3>
+                    <p>Owned by <span class="owner">{{ nft.owner }}</span></p>
+                </div>
+
+                <div class="prices-box">
+                    <div class="nft-bio">
+                        <i class="fa-brands fa-squarespace"></i> <span class="bit-left">Buy before it is late!</span>
+                    </div>
+                    <div class="nft-pricing">
+                        <p class="txt-curr">Current price</p>
+                        <h2>{{ nft.price }} ETH <span class="bit-small">${{ curs }}</span></h2>
+                        {% if nft.owner.username == request.user %}
+                            <button class="buy-now-nft" style="background: rgb(39,54,70);"><div class="buy-txt-btn">You already have it</div> <div class="buy-icon-btn"><i class="fa-solid fa-x"></i></div></button>
+                        {% else %}
+                            <a style="text-decoration: none;" href="{% url 'buy_nft' nft.id %}"><button class="buy-now-nft"><div class="buy-txt-btn">Buy Now</div> <div class="buy-icon-btn"><i class="fa-solid fa-cart-shopping"></i></div></button></a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="cont">
+                    <table class="table table-hover table-dark">
+                        <thead>
+                            <tr>
+                              <th scope="col">Price</th>
+                              <th scope="col">From</th>
+                              <th scope="col">To</th>
+                              <th scope="col">Price</th>
+                            </tr>
+                          </thead>
+                        <tbody>
+                        {% for i in money_tr %}
+                            <tr>
+                                <td>Mark</td>
+                                <td>{% if forloop.last %}None{% else %}{{ i.previous_owner }}{% endif %}</td>
+                                <td>{{ i.owner }}</td>
+                                <td>{{ i.price }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+{% endblock content %}

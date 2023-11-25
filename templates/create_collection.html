@@ -1,0 +1,31 @@
+{% extends 'layouts/no-nav.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/login.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+    <div class="login-block"
+         style="background: url({% static 'main/img/galaxy-7040416_1280.webp' %}) no-repeat center/cover;">
+        <div class="form-container">
+            <p class="title">Create Collection</p>
+            <form class="form" method="POST" action="{% url 'create_collection' %}"
+                  enctype="multipart/form-data">{% csrf_token %}
+                <div class="input-groups">
+                    <label for="">Back IMG</label>
+                    <input type="file" accept="image/*" name="collections_back">
+                </div>
+                <div class="input-groups">
+                    <label for="">Collections IMG</label>
+                    <input type="file" accept="image/*" name="collections_img">
+                </div>
+                <div class="input-groups">
+                    <label for="">Collections Name</label>
+                    <input type="text" name="collections_name">
+                </div>
+                <button style="margin-top: 20px;" type="submit" class="sign">Create</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

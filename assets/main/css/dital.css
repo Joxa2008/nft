@@ -1,0 +1,149 @@
+.flex-it {
+    display: flex;
+    height: 100vh;
+    padding: 50px 50px 0 50px;
+}
+
+.main-nft-block {
+    height: 100%;
+    width: 90%;
+}
+
+.second-nft-block {
+    margin-top: 10px;
+    height: 100%;
+    width: 110%;
+}
+
+.hat {
+    background-color: rgb(32, 32, 32);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    height: 50px;
+    padding-left: 17px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.img-nft-ditail {
+    border-radius: 0 0 15px 15px;
+    height: 100%;
+    width: 100%;
+}
+
+.second-nft-block {
+    padding-left: 30px;
+    color: white;
+}
+
+.collection {
+    color: rgb(143,199,255);
+}
+
+.owner {
+    color: rgb(143,199,255);
+}
+
+.nft_name {
+    font-size: 30px;
+}
+
+.prices-box {
+    width: 100%;
+    font-size: 17px;
+}
+
+.nft-bio {
+    width: 100%;
+    padding: 20px 15px;
+    border: 1px solid rgb(55, 55, 55);
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(27, 27, 27);
+}
+
+.nft-pricing {
+    background-color: rgb(27, 27, 27);
+    padding: 20px 15px;
+    border-radius: 0 0 15px 15px;
+    border: 1px solid rgb(55, 55, 55);
+    border-top: none;
+}
+
+.bit-left {
+    margin-left: 5px;
+}
+
+.bit-small {
+    font-size: 16px;
+    color: rgb(179, 179, 179);
+}
+
+.txt-curr {
+    color: rgb(179, 179, 179);
+}
+
+.buy-now-nft {
+    margin-top: 30px;
+    border: none;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(32,129,226);
+    border-radius: 10px;
+    color: white;
+}
+
+.buy-icon-btn {
+    width: 60px;
+    border-left: solid 1px white;
+    height: 100%;
+    padding: 10px 0;
+}
+
+.buy-txt-btn {
+    width: 100%;
+    height: 100%;
+    padding: 10px 0;
+}
+
+.cont {
+    border-radius: 15px;
+    border: 1px solid rgb(55, 55, 55);
+    height: 210px;
+    overflow: scroll;
+    margin-top: 20px;
+}
+
+@media (max-width: 1070px) {
+    .flex-it{
+        display: block;
+    }
+
+    .second-nft-block {
+        height: 100%;
+        width: 100%;
+    }
+
+    .main-nft-block {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 682px){
+    .buy-now-nft {
+        width: 100%;
+    }
+
+    .flex-it {
+        width: 100%;
+        padding: 50px 10px 0 10px;
+    }
+
+    .second-nft-block {
+        margin-left: -15px;
+        height: 100%;
+        width: 100%;
+    }
+}

@@ -1,0 +1,32 @@
+{% extends 'layouts/no-nav.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/login.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+    <div class="login-block"
+         style="background: url({% static 'main/img/galaxy-7040416_1280.webp' %}) no-repeat center/cover;">
+        <div class="form-container">
+            <p class="title">Buy NFT for {{i.price}} ETH</p>
+            <div class="card" id="nft-black">
+                <div class="top-it" style="background: url({{ i.nft_img.url }}) no-repeat center/cover;">
+                </div>
+                <div class="card-body" style="height: 60px">
+                    <h5 class="card-title">{{ i.collection.collections_name }} #{{ i.nft_name }}</h5>
+                </div>
+            </div>
+            <form class="form" method="POST" action="{% url 'buy_nft' i.id %}">{% csrf_token %}
+                <div class="input-groups">
+                    {% if message %}
+                    	<label style="color: red;" for="username">{{ message }}</label>
+                    {% endif %}
+                    <input type="password" name="pin_code" maxlength="4" id="password" placeholder="Card's Pin Code">
+                </div>
+                <button type="submit" style="margin-top: 15px;" class="sign">Comfirm Payment</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
